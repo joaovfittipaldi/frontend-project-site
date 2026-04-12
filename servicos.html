@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Solicitação de Serviços – TechSolve TI</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { overflow-y: scroll; }
+
+    .info-usuario {
+      display: flex; gap: 28px; align-items: center; flex-wrap: wrap;
+    }
+    .info-item { display: flex; flex-direction: column; gap: 2px; }
+    .info-item span:first-child { font-size:.73rem; font-weight:600; color:var(--cinza-muted); text-transform:uppercase; letter-spacing:.5px; }
+    .info-item span:last-child  { font-size:.97rem; color:var(--azul-escuro); font-weight:600; }
+
+    .form-sol {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 12px;
+      align-items: end;
+      margin-bottom: 6px;
+    }
+    .form-sol .campo { margin: 0; }
+
+    .status-badge {
+      display: inline-block;
+      padding: 3px 10px; border-radius: 20px;
+      font-size: .74rem; font-weight: 600;
+    }
+    .status-concluido  { background: var(--verde-bg);    color: var(--verde); }
+    .status-andamento  { background: var(--amarelo-bg);  color: var(--amarelo); }
+    .status-elaboracao { background: var(--azul-claro);  color: var(--azul-hover); }
+
+    .num-sol { font-style: italic; color: var(--cinza-muted); font-size: .85rem; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo-area">
+      <div class="logo-nome"><span style="color:#85B7EB">&#9632;</span> TechSolve<span class="logo-dot">.</span>TI</div>
+      <div class="logo-sub">Soluções Inteligentes em Tecnologia</div>
+    </div>
+    <div class="header-frase">"Transformamos desafios tecnológicos em resultados reais."</div>
+    <nav class="nav-links"><a href="index.html">Início</a></nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="secao">
+    <div class="secao-titulo">
+      <div class="icone-secao">&#128100;</div>
+      <h2>Usuário Logado</h2>
+    </div>
+    <div class="info-usuario">
+      <div class="info-item">
+        <span>Nome</span>
+        <span id="lbl-nome">João da Silva</span>
+      </div>
+      <div class="info-item">
+        <span>Login (e-mail)</span>
+        <span id="lbl-email">joao.silva@email.com</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao">
+    <div class="secao-titulo">
+      <div class="icone-secao">&#128203;</div>
+      <h2>Minhas Solicitações</h2>
+    </div>
+    <div class="tabela-wrap">
+      <table class="tabela-padrao">
+        <thead>
+          <tr>
+            <th>Data do Pedido</th>
+            <th>Nº Solicitação</th>
+            <th>Serviço de TI</th>
+            <th>Status</th>
+            <th>Preço (R$)</th>
+            <th>Prev. Realização</th>
+            <th>Ação</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="secao">
+    <div class="secao-titulo">
+      <div class="icone-secao">&#43;</div>
+      <h2>Nova Solicitação</h2>
+    </div>
+
+    <div class="form-sol">
+      <div class="campo">
+        <label for="sel">Serviço de TI</label>
+        <select id="sel" onchange="atualizar()">
+          <option value="">-- Selecione --</option>
+          <option value="suporte">Suporte Técnico</option>
+          <option value="rede">Configuração de Rede</option>
+          <option value="nuvem">Migração para Nuvem</option>
+          <option value="seguranca">Consultoria em Segurança</option>
+          <option value="dev">Desenvolvimento de Sistema</option>
+          <option value="backup">Backup e Recuperação</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label>Preço</label>
+        <span class="label-saida" id="lbl-preco">—</span>
+      </div>
+      <div class="campo">
+        <label>Prazo (dias)</label>
+        <span class="label-saida" id="lbl-prazo">—</span>
+      </div>
+      <div class="campo">
+        <label>Prev. Atendimento</label>
+        <span class="label-saida" id="lbl-prev">—</span>
+      </div>
+      <div class="campo">
+        <label>Status</label>
+        <span class="label-saida" id="lbl-status">EM ELABORAÇÃO</span>
+      </div>
+    </div>
+
+    <div id="msg" class="msg-validacao"></div>
+
+    <div class="btn-grupo">
+      <button class="btn btn-primario" onclick="incluir()">+ Incluir Solicitação</button>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div><h3>Contato</h3><ul><li>&#128222; (81) 3222-4455</li><li>&#128241; (81) 99988-7766</li><li>&#9993; <a href="mailto:contato@techsolve.com.br">contato@techsolve.com.br</a></li></ul></div>
+    <div><h3>Endereço</h3><p class="footer-addr">Av. Agamenon Magalhães, 4500 – Sala 301<br>Recife/PE – CEP 52021-170</p></div>
+    <div><h3>Formas de Pagamento</h3><div class="pagamento-icones"><span>VISA</span><span>MASTERCARD</span><span>PIX</span><span>BOLETO</span></div></div>
+  </div>
+  <div class="footer-end">© 2025 TechSolve TI</div>
+</footer>
+
+<script>
+  document.getElementById('lbl-nome').textContent  = sessionStorage.getItem('nomeUsuario')  || 'João da Silva';
+  document.getElementById('lbl-email').textContent = sessionStorage.getItem('emailUsuario') || 'joao.silva@email.com';
+
+  var cat = {
+    suporte:   {nome:'Suporte Técnico',           preco:150.00,  prazo:2},
+    rede:      {nome:'Configuração de Rede',       preco:320.00,  prazo:5},
+    nuvem:     {nome:'Migração para Nuvem',        preco:1800.00, prazo:30},
+    seguranca: {nome:'Consultoria em Segurança',   preco:950.00,  prazo:15},
+    dev:       {nome:'Desenvolvimento de Sistema', preco:3500.00, prazo:60},
+    backup:    {nome:'Backup e Recuperação',       preco:250.00,  prazo:3}
+  };
+
+  function fmt(d){ return d.getDate().toString().padStart(2,'0')+'/'+((d.getMonth()+1).toString().padStart(2,'0'))+'/'+d.getFullYear(); }
+  function addDias(n){ var d=new Date(); d.setDate(d.getDate()+n); return d; }
+  function statusClass(s){ if(s==='CONCLUÍDO') return 'status-concluido'; if(s==='EM ANDAMENTO') return 'status-andamento'; return 'status-elaboracao'; }
+
+  var rows = [
+    {data:'05/01/2025', num:1001, servico:'Suporte Técnico',          status:'CONCLUÍDO',     preco:'R$ 150,00',   prev:'07/01/2025'},
+    {data:'14/02/2025', num:1002, servico:'Configuração de Rede',     status:'CONCLUÍDO',     preco:'R$ 320,00',   prev:'19/02/2025'},
+    {data:'03/03/2025', num:1003, servico:'Backup e Recuperação',     status:'EM ANDAMENTO',  preco:'R$ 250,00',   prev:'06/03/2025'},
+    {data:'22/03/2025', num:1004, servico:'Consultoria em Segurança', status:'EM ELABORAÇÃO', preco:'R$ 950,00',   prev:'06/04/2025'}
+  ];
+  var counter = 1005;
+
+  function render(){
+    rows.sort(function(a,b){ return a.data.split('/').reverse().join('').localeCompare(b.data.split('/').reverse().join('')); });
+    var tb = document.getElementById('tbody');
+    tb.innerHTML = '';
+    rows.forEach(function(r,i){
+      var tr = document.createElement('tr');
+      tr.innerHTML =
+        '<td>'+r.data+'</td>'+
+        '<td class="num-sol">#'+r.num+'</td>'+
+        '<td>'+r.servico+'</td>'+
+        '<td><span class="status-badge '+statusClass(r.status)+'">'+r.status+'</span></td>'+
+        '<td>'+r.preco+'</td>'+
+        '<td>'+r.prev+'</td>'+
+        '<td><button class="btn btn-perigo" onclick="excluir('+i+')">Excluir</button></td>';
+      tb.appendChild(tr);
+    });
+  }
+
+  function excluir(i){ rows.splice(i,1); render(); }
+
+  function atualizar(){
+    var v = document.getElementById('sel').value;
+    if(!v){ document.getElementById('lbl-preco').textContent='—'; document.getElementById('lbl-prazo').textContent='—'; document.getElementById('lbl-prev').textContent='—'; return; }
+    var s = cat[v];
+    document.getElementById('lbl-preco').textContent = 'R$ '+s.preco.toFixed(2).replace('.',',');
+    document.getElementById('lbl-prazo').textContent = s.prazo+' dia(s)';
+    document.getElementById('lbl-prev').textContent  = fmt(addDias(s.prazo));
+  }
+
+  function incluir(){
+    var v = document.getElementById('sel').value;
+    var m = document.getElementById('msg');
+    if(!v){ m.textContent='Selecione um serviço de TI.'; m.className='msg-validacao msg-erro'; m.style.display='block'; return; }
+    var s = cat[v]; counter++;
+    rows.push({data:fmt(new Date()), num:counter, servico:s.nome, status:'EM ELABORAÇÃO', preco:'R$ '+s.preco.toFixed(2).replace('.',','), prev:fmt(addDias(s.prazo))});
+    render();
+    document.getElementById('sel').value=''; atualizar();
+    m.textContent='Solicitação incluída com sucesso!'; m.className='msg-validacao msg-sucesso'; m.style.display='block';
+    setTimeout(function(){ m.style.display='none'; }, 3000);
+  }
+
+  render();
+</script>
+</body>
+</html>

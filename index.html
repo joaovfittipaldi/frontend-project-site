@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechSolve TI – Soluções em Tecnologia</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .hero {
+      background: linear-gradient(135deg, var(--azul-escuro) 0%, #0C447C 100%);
+      border-radius: var(--radius-lg);
+      padding: 48px 44px;
+      margin-bottom: 22px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--sombra);
+    }
+    .hero::before {
+      content:''; position:absolute; right:-60px; top:-60px;
+      width:260px; height:260px; border-radius:50%;
+      background:rgba(255,255,255,0.04);
+    }
+    .hero::after {
+      content:''; position:absolute; right:50px; bottom:-80px;
+      width:180px; height:180px; border-radius:50%;
+      background:rgba(24,95,165,0.2);
+    }
+    .hero-badge {
+      display:inline-block; background:rgba(133,183,235,0.2);
+      color:#85B7EB; border:1px solid rgba(133,183,235,0.3);
+      font-size:0.73rem; font-weight:600; padding:3px 12px;
+      border-radius:20px; letter-spacing:.5px; margin-bottom:14px;
+    }
+    .hero h1 {
+      font-family:'DM Serif Display',Georgia,serif;
+      font-size:2.1rem; color:#fff; line-height:1.2; margin-bottom:10px;
+    }
+    .hero p { color:#B5D4F4; font-size:.97rem; margin:0; max-width:500px; }
+
+    .galeria { display:flex; flex-wrap:wrap; gap:14px; }
+    .galeria figure { width:calc(25% - 11px); min-width:160px; }
+    .galeria figure img {
+      width:100%; height:148px; object-fit:cover;
+      border-radius:10px; display:block;
+      border:1px solid var(--cinza-borda);
+    }
+    .galeria figcaption { font-size:.76rem; color:var(--cinza-muted); margin-top:6px; text-align:center; }
+
+    .cards-servicos { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    .card-servico {
+      background:var(--cinza-bg); border:1px solid var(--cinza-borda);
+      border-radius:var(--radius); padding:18px 20px;
+      transition:border-color .15s, box-shadow .15s;
+    }
+    .card-servico:hover { border-color:var(--azul-borda); box-shadow:0 2px 8px rgba(24,95,165,.1); }
+    .card-icone {
+      width:36px; height:36px; background:var(--azul-claro);
+      border-radius:9px; display:flex; align-items:center; justify-content:center;
+      font-size:15px; margin-bottom:10px;
+    }
+    .card-servico h3 { color:var(--azul-escuro); margin-bottom:5px; font-size:1rem; }
+    .card-servico p { font-size:.86rem; margin:0; }
+
+    .badge-cargo {
+      display:inline-block; background:var(--azul-claro); color:var(--azul-hover);
+      border:1px solid var(--azul-borda); padding:2px 9px;
+      border-radius:20px; font-size:.73rem; font-weight:600;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo-area">
+      <div class="logo-nome">
+        <span style="color:#85B7EB">&#9632;</span>
+        TechSolve<span class="logo-dot">.</span>TI
+      </div>
+      <div class="logo-sub">Soluções Inteligentes em Tecnologia</div>
+    </div>
+    <div class="header-frase">
+      "Transformamos desafios tecnológicos em resultados reais para o seu negócio."
+    </div>
+    <nav class="nav-links">
+      <a href="login.html">Login</a>
+      <a href="cadastro.html" class="destaque">Cadastre-se</a>
+      <a href="servicos.html" id="link-servicos" style="display:none;" class="destaque">Solicitar Serviço</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <div class="hero">
+    <div class="hero-badge">DESDE 2010</div>
+    <h1>Tecnologia que impulsiona<br>o seu negócio</h1>
+    <p>Suporte, infraestrutura, segurança e desenvolvimento de sistemas — tudo com agilidade e expertise para empresas de todos os tamanhos.</p>
+  </div>
+
+  <section class="secao">
+    <div class="secao-titulo">
+      <div class="icone-secao">&#128218;</div>
+      <h2>Nossa História</h2>
+    </div>
+    <p>A <strong class="dest">TechSolve TI</strong> foi fundada em <mark class="realce">2010</mark> por três engenheiros apaixonados por tecnologia, com o objetivo de oferecer soluções de TI acessíveis e de qualidade para pequenas e médias empresas. Começamos como uma pequena consultoria em Recife, com apenas três computadores e uma sala alugada no bairro do Espinheiro.</p>
+    <p>Ao longo dos anos, expandimos nossa atuação para suporte técnico, desenvolvimento de sistemas, segurança digital e infraestrutura em nuvem. Hoje, contamos com <em>mais de 80 clientes ativos</em> em todo o Nordeste e uma equipe de 25 profissionais especializados.</p>
+    <p style="margin:0">Nossa missão é simples: garantir que a tecnologia trabalhe <em>para você</em>, e não contra você. Com atendimento ágil e soluções sob medida, somos o parceiro tecnológico ideal para o crescimento do seu negócio.</p>
+  </section>
+
+  <section class="secao">
+    <div class="secao-titulo">
+      <div class="icone-secao">&#9654;</div>
+      <h2>Vídeo Institucional</h2>
+    </div>
+    <p style="margin-bottom:16px">Conheça nossa equipe, estrutura e forma de trabalhar:</p>
+    <div style="text-align:center">
+      <iframe width="640" height="360"
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+        title="Vídeo institucional TechSolve TI"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        style="border-radius:10px; max-width:100%; border:1px solid var(--cinza-borda)">
+      </iframe>
+    </div>
+  </section>
+
+  <section class="secao">
+    <div class="secao-titulo">
+      <div class="icone-secao">&#128247;</div>
+      <h2>Nossas Instalações</h2>
+    </div>
+    <div class="galeria">
+      <figure>
+        <img src="https://placehold.co/240x148/042C53/E6F1FB?text=Sala+de+Reuniões" alt="Sala de reuniões">
+        <figcaption>Sala de Reuniões</figcaption>
+      </figure>
+      <figure>
+        <img src="https://placehold.co/240x148/185FA5/ffffff?text=Data+Center" alt="Data Center">
+        <figcaption>Data Center</figcaption>
+      </figure>
+      <figure>
+        <img src="https://placehold.co/240x148/0C447C/B5D4F4?text=Equipe+Técnica" alt="Equipe">
+        <figcaption>Equipe Técnica</figcaption>
+      </figure>
+      <figure>
+        <img src="https://placehold.co/240x148/378ADD/ffffff?text=Atendimento" alt="Atendimento">
+        <figcaption>Central de Atendimento</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="secao">
+    <div class="secao-titulo">
+      <div class="icone-secao">&#9881;</div>
+      <h2>Nossos Serviços de TI</h2>
+    </div>
+    <div class="cards-servicos">
+      <div class="card-servico">
+        <div class="card-icone">&#128295;</div>
+        <h3>Suporte Técnico</h3>
+        <p>Atendimento presencial e remoto para manutenção de computadores, redes e periféricos. Resolução ágil dos problemas do dia a dia.</p>
+      </div>
+      <div class="card-servico">
+        <div class="card-icone">&#9729;</div>
+        <h3>Computação em Nuvem</h3>
+        <p>Migração e gerenciamento em nuvem (AWS, Azure, Google Cloud). Escalabilidade e redução de custos com infraestrutura moderna.</p>
+      </div>
+      <div class="card-servico">
+        <div class="card-icone">&#128274;</div>
+        <h3>Segurança Digital</h3>
+        <p>Consultoria em segurança da informação, firewalls, antivírus corporativo e treinamento contra ataques cibernéticos.</p>
+      </div>
+      <div class="card-servico">
+        <div class="card-icone">&#128187;</div>
+        <h3>Desenvolvimento de Sistemas</h3>
+        <p>Criação de sistemas web e mobile sob medida para automatizar processos e aumentar a produtividade da sua equipe.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao">
+    <div class="secao-titulo">
+      <div class="icone-secao">&#128100;</div>
+      <h2>Nossos Fundadores</h2>
+    </div>
+    <div class="tabela-wrap">
+      <table class="tabela-padrao">
+        <thead>
+          <tr>
+            <th style="width:100px">Cargo</th>
+            <th style="width:160px">Nome</th>
+            <th>Mini Currículo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="badge-cargo">CEO</span></td>
+            <td style="font-weight:600">Carlos Mendonça</td>
+            <td>Engenheiro de Computação pela UFPE (2005). MBA em Gestão de TI pela FGV. Mais de 15 anos de experiência no mercado de tecnologia corporativa.</td>
+          </tr>
+          <tr>
+            <td><span class="badge-cargo">CTO</span></td>
+            <td style="font-weight:600">Ana Paula Rocha</td>
+            <td>Bacharel em Ciência da Computação pela UFPE (2006). Especialista em Segurança da Informação e Computação em Nuvem. Palestrante em eventos nacionais de tecnologia.</td>
+          </tr>
+          <tr>
+            <td><span class="badge-cargo">COO</span></td>
+            <td style="font-weight:600">Rafael Souza Lima</td>
+            <td>Graduado em Sistemas de Informação pela UNICAP. Responsável por toda a operação e suporte técnico da empresa desde a fundação, com foco em processos e qualidade.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <h3>Contato</h3>
+      <ul>
+        <li><span>&#128222;</span>(81) 3222-4455 &nbsp;<small style="color:#4d6b8a">Fixo</small></li>
+        <li><span>&#128241;</span>(81) 99988-7766 &nbsp;<small style="color:#4d6b8a">WhatsApp</small></li>
+        <li><span>&#9993;</span><a href="mailto:contato@techsolve.com.br">contato@techsolve.com.br</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Endereço</h3>
+      <p class="footer-addr">Av. Agamenon Magalhães, 4500 – Sala 301<br>Espinheiro · Recife / PE<br>CEP 52021-170</p>
+    </div>
+    <div>
+      <h3>Formas de Pagamento</h3>
+      <div class="pagamento-icones">
+        <span>VISA</span><span>MASTERCARD</span><span>PIX</span>
+        <span>BOLETO</span><span>AMEX</span><span>ELO</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-end">© 2025 TechSolve TI — Todos os direitos reservados.</div>
+</footer>
+
+<script>
+  if (sessionStorage.getItem('logado') === 'true') {
+    document.getElementById('link-servicos').style.display = 'inline-block';
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Troca de Senha – TechSolve TI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="pagina-form">
+
+<header>
+  <div class="header-inner">
+    <div class="logo-area">
+      <div class="logo-nome"><span style="color:#85B7EB">&#9632;</span> TechSolve<span class="logo-dot">.</span>TI</div>
+      <div class="logo-sub">Soluções Inteligentes em Tecnologia</div>
+    </div>
+    <div class="header-frase">"Transformamos desafios tecnológicos em resultados reais."</div>
+    <nav class="nav-links"><a href="index.html">Início</a><a href="login.html">Login</a></nav>
+  </div>
+</header>
+
+<div class="form-wrap">
+  <div class="form-card" style="max-width:520px">
+    <div class="form-logo">
+      <div class="logo-nome"><span style="color:var(--azul)">&#9632;</span> TechSolve<span style="color:var(--azul)">.</span>TI</div>
+      <div class="logo-sub">Área do Cliente</div>
+    </div>
+    <h2>Troca de Senha de Clientes</h2>
+
+    <div class="campo"><label for="login">E-mail (Login)</label><input type="text" id="login" placeholder="seu@email.com"></div>
+    <div class="campo"><label for="senha">Nova Senha</label><input type="password" id="senha" placeholder="Digite a nova senha"></div>
+    <div class="campo"><label for="conf">Confirmação de Senha</label><input type="password" id="conf" placeholder="Repita a nova senha"></div>
+
+    <div class="campo">
+      <label>Regras de composição da senha</label>
+      <output class="campo-instrucoes">
+        <strong>A senha deve ter:</strong> mínimo 6 caracteres, ao menos 1 número, 1 letra maiúscula e 1 caractere especial permitido:<br>
+        <code>@ # $ % &amp; * ! ? / \ | - _ + . =</code><br><br>
+        <strong>Caracteres NÃO permitidos:</strong>&nbsp; <code>¨ { } [ ] ´ ` ~ ^ : ; &lt; &gt; , " '</code>
+      </output>
+    </div>
+
+    <div id="msg" class="msg-validacao"></div>
+
+    <div class="btn-grupo">
+      <button class="btn btn-primario" onclick="trocarSenha()">Trocar Senha</button>
+      <button class="btn btn-secundario" onclick="limpar()">Limpar</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div><h3>Contato</h3><ul><li>&#128222; (81) 3222-4455</li><li>&#128241; (81) 99988-7766</li><li>&#9993; <a href="mailto:contato@techsolve.com.br">contato@techsolve.com.br</a></li></ul></div>
+    <div><h3>Endereço</h3><p class="footer-addr">Av. Agamenon Magalhães, 4500 – Sala 301<br>Recife/PE – CEP 52021-170</p></div>
+    <div><h3>Formas de Pagamento</h3><div class="pagamento-icones"><span>VISA</span><span>MASTERCARD</span><span>PIX</span><span>BOLETO</span></div></div>
+  </div>
+  <div class="footer-end">© 2025 TechSolve TI</div>
+</footer>
+
+<script>
+  function show(texto, tipo) {
+    var el = document.getElementById('msg');
+    el.textContent = texto;
+    el.className = 'msg-validacao msg-' + tipo;
+    el.style.display = 'block';
+  }
+  function validarSenha(s) {
+    if (s.length < 6) return 'A senha deve ter pelo menos 6 caracteres.';
+    if (!/[0-9]/.test(s)) return 'A senha deve conter pelo menos um número.';
+    if (!/[A-Z]/.test(s)) return 'A senha deve conter pelo menos uma letra maiúscula.';
+    if (!/@|#|\$|%|&|\*|!|\?|\/|\\|\||-|_|\+|\.|=/.test(s)) return 'Inclua ao menos um caractere especial permitido.';
+    if (/[¨{}\[\]´`~^:;<>,"']/.test(s)) return 'A senha contém caracteres não permitidos.';
+    return null;
+  }
+  function trocarSenha() {
+    var l = document.getElementById('login').value.trim();
+    var s = document.getElementById('senha').value;
+    var c = document.getElementById('conf').value;
+    if (!l) { show('Informe o e-mail.', 'erro'); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(l)) { show('E-mail inválido.', 'erro'); return; }
+    if (!s) { show('Informe a senha.', 'erro'); return; }
+    var e = validarSenha(s); if (e) { show(e, 'erro'); return; }
+    if (!c) { show('Confirme a senha.', 'erro'); return; }
+    if (s !== c) { show('A senha e a confirmação não coincidem.', 'erro'); return; }
+    show('Validação realizada com sucesso!', 'sucesso');
+    setTimeout(function(){ history.back(); }, 1100);
+  }
+  function limpar() {
+    ['login','senha','conf'].forEach(function(id){ document.getElementById(id).value=''; });
+    document.getElementById('msg').style.display = 'none';
+    document.getElementById('login').focus();
+  }
+</script>
+</body>
+</html>

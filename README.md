@@ -1,6 +1,6 @@
 # TechSolve TI — Site AV1
 
-Projeto acadêmico da disciplina de Desenvolvimento Web. Site de uma empresa fictícia de serviços de TI, composto por 5 páginas HTML com CSS e JavaScript separados.
+Projeto acadêmico da disciplina de Front End. Site de uma empresa fictícia de serviços de TI, composto por 5 páginas HTML com CSS e JavaScript separados.
 
 ---
 

@@ -2,15 +2,19 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login – TechSolve TI</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="pagina-form">
 
 <header>
   <div class="header-inner">
     <div class="logo-area">
-      <div class="logo-nome"><span style="color:#85B7EB">&#9632;</span> TechSolve<span class="logo-dot">.</span>TI</div>
+      <div class="logo-nome">
+        <img src="img/logo.png" alt="Logo TechSolve" style="height:40px; vertical-align:middle; margin-right:8px;">
+        TechSolve<span class="logo-dot">.</span>TI
+      </div>
       <div class="logo-sub">Soluções Inteligentes em Tecnologia</div>
     </div>
     <div class="header-frase">"Transformamos desafios tecnológicos em resultados reais."</div>
@@ -58,37 +62,12 @@
 <footer>
   <div class="footer-inner">
     <div><h3>Contato</h3><ul><li>&#128222; (81) 3222-4455</li><li>&#128241; (81) 99988-7766</li><li>&#9993; <a href="mailto:contato@techsolve.com.br">contato@techsolve.com.br</a></li></ul></div>
-    <div><h3>Endereço</h3><p class="footer-addr">Av. Agamenon Magalhães, 4500 – Sala 301<br>Recife/PE – CEP 52021-170</p></div>
+    <div><h3>Endereço</h3><p class="footer-addr">Rua de Apipucos, 261 – Sala 602<br>Monteiro · Recife / PE<br>CEP 52071-640</p></div>
     <div><h3>Formas de Pagamento</h3><div class="pagamento-icones"><span>VISA</span><span>MASTERCARD</span><span>PIX</span><span>BOLETO</span></div></div>
   </div>
-  <div class="footer-end">© 2025 TechSolve TI</div>
+  <div class="footer-end">© 2026 TechSolve TI</div>
 </footer>
 
-<script>
-  function msg(texto, tipo) {
-    var el = document.getElementById('msg');
-    el.textContent = texto;
-    el.className = 'msg-validacao msg-' + tipo;
-    el.style.display = 'block';
-  }
-  function realizarLogin() {
-    var login = document.getElementById('login').value.trim();
-    var senha = document.getElementById('senha').value;
-    if (!login) { msg('Informe o e-mail.', 'erro'); return; }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(login)) { msg('E-mail inválido. Use o formato nome@dominio.com.', 'erro'); return; }
-    if (!senha) { msg('Informe a senha.', 'erro'); return; }
-    msg('Validação realizada com sucesso!', 'sucesso');
-    sessionStorage.setItem('logado', 'true');
-    sessionStorage.setItem('nomeUsuario', 'João da Silva');
-    sessionStorage.setItem('emailUsuario', login);
-    setTimeout(function(){ window.location.href = 'index.html'; }, 1100);
-  }
-  function limpar() {
-    document.getElementById('login').value = '';
-    document.getElementById('senha').value = '';
-    document.getElementById('msg').style.display = 'none';
-    document.getElementById('login').focus();
-  }
-</script>
+<script src="js/login.js"></script>
 </body>
 </html>

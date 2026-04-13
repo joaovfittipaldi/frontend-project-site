@@ -4,16 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TechSolve TI – Soluções em Tecnologia</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
   <style>
     .hero {
       background: linear-gradient(135deg, var(--azul-escuro) 0%, #0C447C 100%);
-      border-radius: var(--radius-lg);
-      padding: 48px 44px;
-      margin-bottom: 22px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: var(--sombra);
+      border-radius: var(--radius-lg); padding: 48px 44px;
+      margin-bottom: 22px; position: relative;
+      overflow: hidden; box-shadow: var(--sombra);
     }
     .hero::before {
       content:''; position:absolute; right:-60px; top:-60px;
@@ -41,8 +38,7 @@
     .galeria figure { width:calc(25% - 11px); min-width:160px; }
     .galeria figure img {
       width:100%; height:148px; object-fit:cover;
-      border-radius:10px; display:block;
-      border:1px solid var(--cinza-borda);
+      border-radius:10px; display:block; border:1px solid var(--cinza-borda);
     }
     .galeria figcaption { font-size:.76rem; color:var(--cinza-muted); margin-top:6px; text-align:center; }
 
@@ -59,7 +55,7 @@
       font-size:15px; margin-bottom:10px;
     }
     .card-servico h3 { color:var(--azul-escuro); margin-bottom:5px; font-size:1rem; }
-    .card-servico p { font-size:.86rem; margin:0; }
+    .card-servico p  { font-size:.86rem; margin:0; }
 
     .badge-cargo {
       display:inline-block; background:var(--azul-claro); color:var(--azul-hover);
@@ -73,15 +69,13 @@
 <header>
   <div class="header-inner">
     <div class="logo-area">
-      <div class="logo-nome">
-        <span style="color:#85B7EB">&#9632;</span>
-        TechSolve<span class="logo-dot">.</span>TI
-      </div>
-      <div class="logo-sub">Soluções Inteligentes em Tecnologia</div>
-    </div>
-    <div class="header-frase">
-      "Transformamos desafios tecnológicos em resultados reais para o seu negócio."
-    </div>
+  <div class="logo-nome">
+    <img src="img/logo.png" alt="TechSolve Logo" style="height: 40px; vertical-align: middle; margin-right: 8px;">
+    TechSolve<span class="logo-dot">.</span>TI
+  </div>
+  <div class="logo-sub">Soluções Inteligentes em Tecnologia</div>
+</div>
+    <div class="header-frase">"Transformamos desafios tecnológicos em resultados reais para o seu negócio."</div>
     <nav class="nav-links">
       <a href="login.html">Login</a>
       <a href="cadastro.html" class="destaque">Cadastre-se</a>
@@ -100,7 +94,7 @@
 
   <section class="secao">
     <div class="secao-titulo">
-      <div class="icone-secao">&#128218;</div>
+      <div class="icone-secao"></div>
       <h2>Nossa História</h2>
     </div>
     <p>A <strong class="dest">TechSolve TI</strong> foi fundada em <mark class="realce">2010</mark> por três engenheiros apaixonados por tecnologia, com o objetivo de oferecer soluções de TI acessíveis e de qualidade para pequenas e médias empresas. Começamos como uma pequena consultoria em Recife, com apenas três computadores e uma sala alugada no bairro do Espinheiro.</p>
@@ -110,16 +104,19 @@
 
   <section class="secao">
     <div class="secao-titulo">
-      <div class="icone-secao">&#9654;</div>
+      <div class="icone-secao"></div>
       <h2>Vídeo Institucional</h2>
     </div>
     <p style="margin-bottom:16px">Conheça nossa equipe, estrutura e forma de trabalhar:</p>
     <div style="text-align:center">
-      <iframe width="640" height="360"
-        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+      <iframe
+        width="640"
+        height="360"
+        src="https://www.youtube.com/embed/zGsX5-lO0w8"
         title="Vídeo institucional TechSolve TI"
         frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
         allowfullscreen
         style="border-radius:10px; max-width:100%; border:1px solid var(--cinza-borda)">
       </iframe>
@@ -128,52 +125,52 @@
 
   <section class="secao">
     <div class="secao-titulo">
-      <div class="icone-secao">&#128247;</div>
+      <div class="icone-secao"></div>
       <h2>Nossas Instalações</h2>
     </div>
     <div class="galeria">
       <figure>
-        <img src="https://placehold.co/240x148/042C53/E6F1FB?text=Sala+de+Reuniões" alt="Sala de reuniões">
-        <figcaption>Sala de Reuniões</figcaption>
+        <img src="img/foto1.jpg" alt="Sala de convivência">
+        <figcaption>Sala de Convivência</figcaption>
       </figure>
       <figure>
-        <img src="https://placehold.co/240x148/185FA5/ffffff?text=Data+Center" alt="Data Center">
-        <figcaption>Data Center</figcaption>
-      </figure>
-      <figure>
-        <img src="https://placehold.co/240x148/0C447C/B5D4F4?text=Equipe+Técnica" alt="Equipe">
+        <img src="img/foto2.jpg" alt="Equipe">
         <figcaption>Equipe Técnica</figcaption>
       </figure>
       <figure>
-        <img src="https://placehold.co/240x148/378ADD/ffffff?text=Atendimento" alt="Atendimento">
-        <figcaption>Central de Atendimento</figcaption>
+        <img src="img/foto3.jpg" alt="Data Center">
+        <figcaption>Data Center</figcaption>
+      </figure>
+      <figure>
+        <img src="img/foto4.jpg" alt="Sala de reunião">
+        <figcaption>Sala de Reunião</figcaption>
       </figure>
     </div>
   </section>
 
   <section class="secao">
     <div class="secao-titulo">
-      <div class="icone-secao">&#9881;</div>
+      <div class="icone-secao"></div>
       <h2>Nossos Serviços de TI</h2>
     </div>
     <div class="cards-servicos">
       <div class="card-servico">
-        <div class="card-icone">&#128295;</div>
+        <div class="card-icone"></div>
         <h3>Suporte Técnico</h3>
         <p>Atendimento presencial e remoto para manutenção de computadores, redes e periféricos. Resolução ágil dos problemas do dia a dia.</p>
       </div>
       <div class="card-servico">
-        <div class="card-icone">&#9729;</div>
+        <div class="card-icone"></div>
         <h3>Computação em Nuvem</h3>
         <p>Migração e gerenciamento em nuvem (AWS, Azure, Google Cloud). Escalabilidade e redução de custos com infraestrutura moderna.</p>
       </div>
       <div class="card-servico">
-        <div class="card-icone">&#128274;</div>
+        <div class="card-icone"></div>
         <h3>Segurança Digital</h3>
         <p>Consultoria em segurança da informação, firewalls, antivírus corporativo e treinamento contra ataques cibernéticos.</p>
       </div>
       <div class="card-servico">
-        <div class="card-icone">&#128187;</div>
+        <div class="card-icone"></div>
         <h3>Desenvolvimento de Sistemas</h3>
         <p>Criação de sistemas web e mobile sob medida para automatizar processos e aumentar a produtividade da sua equipe.</p>
       </div>
@@ -182,7 +179,7 @@
 
   <section class="secao">
     <div class="secao-titulo">
-      <div class="icone-secao">&#128100;</div>
+      <div class="icone-secao"></div>
       <h2>Nossos Fundadores</h2>
     </div>
     <div class="tabela-wrap">
@@ -222,14 +219,14 @@
     <div>
       <h3>Contato</h3>
       <ul>
-        <li><span>&#128222;</span>(81) 3222-4455 &nbsp;<small style="color:#4d6b8a">Fixo</small></li>
-        <li><span>&#128241;</span>(81) 99988-7766 &nbsp;<small style="color:#4d6b8a">WhatsApp</small></li>
-        <li><span>&#9993;</span><a href="mailto:contato@techsolve.com.br">contato@techsolve.com.br</a></li>
+        <li>(81) 3222-4455 &nbsp;<small style="color:#4d6b8a">Fixo</small></li>
+        <li>(81) 99988-7766 &nbsp;<small style="color:#4d6b8a">WhatsApp</small></li>
+        <li><a href="mailto:contato@techsolve.com.br">contato@techsolve.com.br</a></li>
       </ul>
     </div>
     <div>
       <h3>Endereço</h3>
-      <p class="footer-addr">Av. Agamenon Magalhães, 4500 – Sala 301<br>Espinheiro · Recife / PE<br>CEP 52021-170</p>
+      <p class="footer-addr">Rua de Apipucos, 261 – Sala 602<br>Monteiro · Recife / PE<br>CEP 52071-640</p>
     </div>
     <div>
       <h3>Formas de Pagamento</h3>
@@ -239,13 +236,9 @@
       </div>
     </div>
   </div>
-  <div class="footer-end">© 2025 TechSolve TI — Todos os direitos reservados.</div>
+  <div class="footer-end">© 2026 TechSolve TI — Todos os direitos reservados.</div>
 </footer>
 
-<script>
-  if (sessionStorage.getItem('logado') === 'true') {
-    document.getElementById('link-servicos').style.display = 'inline-block';
-  }
-</script>
+<script src="js/index.js"></script>
 </body>
 </html>
